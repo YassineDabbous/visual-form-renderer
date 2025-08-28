@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
-import CustomFormRenderer from './components/CustomFormRenderer';
-import { FormDefinition } from './types';
+import {CustomFormRenderer} from './components/CustomFormRenderer';
+import { FormDefinition } from '@/types';
 
 const sampleFormDefinition: FormDefinition = {
   "settings": {

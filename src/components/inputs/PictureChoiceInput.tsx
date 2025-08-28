@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { FormElement, ChoiceOption } from '../../types';
+import { FormElement, ChoiceOption } from '@/types';
 
 interface PictureChoiceInputProps {
   element: FormElement;
@@ -43,7 +43,7 @@ export const PictureChoiceInput: React.FC<PictureChoiceInputProps> = ({ element,
       {element.multiple && !element.hideFormText && <p className={descriptionClasses}>Choose as many as you like.</p>}
       
       <div className={`grid gap-4 ${element.supersize ? 'grid-cols-2' : 'grid-cols-3'}`}>
-        {element.choices?.map((option: ChoiceOption) => {
+        {element.choices?.map((option: any) => {
           const isSelected = element.multiple ? initialValue.includes(option.value) : initialValue === option.value;
           return (
             <label

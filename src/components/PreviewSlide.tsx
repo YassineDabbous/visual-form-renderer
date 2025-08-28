@@ -58,7 +58,7 @@ export const PreviewSlide: React.FC<PreviewSlideProps> = ({
                   <div key={`${element.name}-${elementIndex}`} className="opacity-75 pointer-events-none">
                     <Component
                       element={elementWithValue}
-                      value={formAnswers[element.name]}
+                      value={formAnswers[element.name!]}
                       onChange={() => {}}
                     />
                   </div>

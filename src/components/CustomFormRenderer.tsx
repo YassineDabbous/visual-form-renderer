@@ -23,6 +23,7 @@ import { Blockquote } from './display/Blockquote';
 import { UnorderedList } from './display/UnorderedList';
 import { OrderedList } from './display/OrderedList';
 import { Code } from './display/Code';
+import i18n from '@/i18n';
 
 interface CustomFormRendererProps {
   formDefinition: FormDefinition;
@@ -68,7 +69,7 @@ const componentMap: { [key: string]: React.FC<any> } = {
   code: Code,
 };
 
-const CustomFormRenderer: React.FC<CustomFormRendererProps> = ({ formDefinition, onSubmit, durationInMinutes, startedAt, language = 'en', showCorrection = false }) => {
+export const CustomFormRenderer: React.FC<CustomFormRendererProps> = ({ formDefinition, onSubmit, durationInMinutes, startedAt, language = 'en', showCorrection = false }) => {
   const { t, i18n } = useTranslation();
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [formAnswers, setFormAnswers] = useState<{ [key: string]: any }>({});
@@ -308,7 +309,7 @@ const CustomFormRenderer: React.FC<CustomFormRendererProps> = ({ formDefinition,
         </div>
 
       <form onSubmit={e => e.preventDefault()} noValidate>
-        {currentSlide.elements.map((element, index) => {
+        {currentSlide.elements.map((element:FormElement, index:any) => {
           if (element.displayCondition && !evaluateCondition(element.displayCondition.condition, formAnswers)) {
             return null;
           }
@@ -322,7 +323,7 @@ const CustomFormRenderer: React.FC<CustomFormRendererProps> = ({ formDefinition,
             <Component
               key={`${element.name || element.type}-${index}`}
               element={{...element, disabled: element.disabled || isTimeUp}}
-              value={isInput ? formAnswers[element.name] : undefined}
+              value={isInput ? formAnswers[element.name!] : undefined}
               onChange={isInput ? (value: any) => handleInputChange(element.name!, value) : undefined}
               error={isInput ? errors[element.name!] : undefined}
             />
@@ -357,5 +358,3 @@ const CustomFormRenderer: React.FC<CustomFormRendererProps> = ({ formDefinition,
     </>
   );
 };
-
-export default CustomFormRenderer;
