@@ -1,0 +1,5 @@
+{
+  "name": "Dynamic Form Renderer",
+  "description": "A React application that renders interactive, multi-step forms from a JSON definition, featuring conditional logic and various input types.",
+  "requestFramePermissions": []
+}
