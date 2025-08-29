@@ -198,7 +198,7 @@ const sampleFormDefinition: FormDefinition = {
 
 
 const App: React.FC = () => {
-  const [submittedData, setSubmittedData] = useState<any | null>(null);
+  const [, setSubmittedData] = useState<any | null>(null);
   const [language, setLanguage] = useState<'en' | 'fr' | 'ar'>('en');
 
   const handleFormSubmit = (answers: { [key: string]: any }) => {

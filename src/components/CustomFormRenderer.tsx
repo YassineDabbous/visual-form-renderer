@@ -23,7 +23,6 @@ import { Blockquote } from './display/Blockquote';
 import { UnorderedList } from './display/UnorderedList';
 import { OrderedList } from './display/OrderedList';
 import { Code } from './display/Code';
-import i18n from '@/i18n';
 
 interface CustomFormRendererProps {
   formDefinition: FormDefinition;

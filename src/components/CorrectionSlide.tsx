@@ -60,7 +60,7 @@ const CorrectionItem: React.FC<{ element: FormElement, userAnswer: any }> = ({ e
     );
 };
 
-export const CorrectionSlide: React.FC<CorrectionSlideProps> = ({ formDefinition, formAnswers, allSlides }) => {
+export const CorrectionSlide: React.FC<CorrectionSlideProps> = ({ formAnswers, allSlides }) => {
     const { t } = useTranslation();
     const allElements = allSlides.flatMap(s => s.elements).filter(el => el.name);
     
