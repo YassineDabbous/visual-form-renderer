@@ -5,7 +5,14 @@ import dts from 'vite-plugin-dts'
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  plugins: [react(), dts(), tailwindcss(),],
+  plugins: [
+    react(),
+    dts({
+      insertTypesEntry: true,
+      rollupTypes: true
+    }),
+    tailwindcss(),
+  ],
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.ts'),
