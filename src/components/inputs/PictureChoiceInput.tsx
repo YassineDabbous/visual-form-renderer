@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { FormElement } from '@/types';
+import { FormElement } from '../../types';
 
 interface PictureChoiceInputProps {
   element: FormElement;

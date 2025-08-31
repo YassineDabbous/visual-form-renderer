@@ -53,20 +53,32 @@ export const ChoiceInput: React.FC<ChoiceInputProps> = ({ element, value, onChan
       {element.multiple && !element.hideFormText && <p className={descriptionClasses}>{t('chooseAsMany')}</p>}
       
       <div className={`space-y-2 ${element.horizontal ? 'flex space-x-4 space-y-0' : ''}`}>
-        {finalChoices.map((option: ChoiceOption) => (
-          <label key={option.value} className="flex items-center p-3 w-full bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
-            <input
-              type={element.multiple ? 'checkbox' : 'radio'}
-              name={element.name}
-              value={option.value}
-              checked={element.multiple ? (initialValue && initialValue.includes(option.value)) : initialValue === option.value}
-              onChange={() => element.multiple ? handleCheckboxChange(option.value) : onChange(option.value)}
-              disabled={element.disabled}
-              className={element.multiple ? "form-checkbox h-5 w-5 text-blue-600" : "form-radio h-5 w-5 text-blue-600"}
-            />
-            <span className="ms-3 text-gray-800 dark:text-gray-200">{option.label}</span>
-          </label>
-        ))}
+        {finalChoices.map((option: ChoiceOption) => {
+          const isSelected = element.multiple ? (initialValue && initialValue.includes(option.value)) : initialValue === option.value;
+          const labelClasses = [
+            'flex', 'items-center', 'p-3', 'w-full', 'rounded-lg', 'border', 'cursor-pointer', 'transition-colors',
+            !element.disabled && 'hover:bg-gray-50',
+            !element.disabled && 'dark:hover:bg-gray-700',
+            isSelected
+              ? 'border-blue-500 ring-2 ring-blue-500 bg-blue-50 dark:bg-blue-900/30'
+              : 'border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800'
+          ].filter(Boolean).join(' ');
+
+          return (
+            <label key={option.value} className={labelClasses}>
+              <input
+                type={element.multiple ? 'checkbox' : 'radio'}
+                name={element.name}
+                value={option.value}
+                checked={isSelected}
+                onChange={() => element.multiple ? handleCheckboxChange(option.value) : onChange(option.value)}
+                disabled={element.disabled}
+                className="h-5 w-5 text-blue-600"
+              />
+              <span className="ms-3 text-gray-800 dark:text-gray-200">{option.label}</span>
+            </label>
+          );
+        })}
       </div>
       {error && <p className="text-red-500 text-xs italic mt-2 ps-1">{error}</p>}
     </div>

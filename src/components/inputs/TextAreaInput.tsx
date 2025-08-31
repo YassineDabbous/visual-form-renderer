@@ -22,7 +22,7 @@ export const TextAreaInput: React.FC<TextAreaInputProps> = ({ element, value, on
 
   const questionClasses = `block font-bold mb-1 ${isClassic || isSmall ? 'text-sm' : 'text-base'} ${error ? 'text-red-700 dark:text-red-500' : 'text-gray-700 dark:text-gray-300'}`;
   const descriptionClasses = `text-gray-500 dark:text-gray-400 mb-2 ${isClassic || isSmall ? 'text-xs' : 'text-sm'}`;
-  const inputClasses = `shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:ring-2 disabled:bg-gray-200 dark:disabled:bg-gray-600 ${isSmall ? 'text-sm' : 'text-base'} ${error ? 'border-red-500 focus:ring-red-500' : 'dark:border-gray-600 focus:ring-blue-500'}`;
+  const inputClasses = `shadow appearance-none border rounded w-full py-3 px-4 bg-white text-gray-700 dark:text-gray-300 dark:bg-gray-700 leading-tight focus:outline-none focus:ring-2 disabled:bg-gray-200 dark:disabled:bg-gray-600 ${isSmall ? 'text-sm' : 'text-base'} ${error ? 'border-red-500 focus:ring-red-500' : 'dark:border-gray-600 focus:ring-blue-500'}`;
 
   const otherAttrs = element.attrs?.reduce((acc, { name, value }) => ({ ...acc, [name]: value }), {}) || {};
 
