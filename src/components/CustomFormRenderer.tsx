@@ -1,9 +1,9 @@
-
 import React, { useState, useMemo, useEffect, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FormDefinition, FormSlide, FormElement } from '../types';
 import { evaluateCondition } from '../utils/conditionEvaluator';
 import { TextInput } from './inputs/TextInput';
+import { TextAreaInput } from './inputs/TextAreaInput';
 import { ChoiceInput } from './inputs/ChoiceInput';
 import { RatingInput } from './inputs/RatingInput';
 import { SwitchInput } from './inputs/SwitchInput';
@@ -36,6 +36,7 @@ interface CustomFormRendererProps {
 const componentMap: { [key: string]: React.FC<any> } = {
   // Inputs
   text: TextInput,
+  textarea: TextAreaInput,
   email: (props) => <TextInput {...props} element={{...props.element, type: 'email'}} />,
   url: (props) => <TextInput {...props} element={{...props.element, type: 'url'}} />,
   tel: (props) => <TextInput {...props} element={{...props.element, type: 'tel'}} />,
@@ -68,7 +69,7 @@ const componentMap: { [key: string]: React.FC<any> } = {
   code: Code,
 };
 
-export const CustomFormRenderer: React.FC<CustomFormRendererProps> = ({ formDefinition, onSubmit, durationInMinutes, startedAt, language = 'en', showCorrection = false }) => {
+const CustomFormRenderer: React.FC<CustomFormRendererProps> = ({ formDefinition, onSubmit, durationInMinutes, startedAt, language = 'en', showCorrection = false }) => {
   const { t, i18n } = useTranslation();
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [formAnswers, setFormAnswers] = useState<{ [key: string]: any }>({});
@@ -357,3 +358,5 @@ export const CustomFormRenderer: React.FC<CustomFormRendererProps> = ({ formDefi
     </>
   );
 };
+
+export default CustomFormRenderer;

@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import { FormElement } from '../../types';
 
@@ -10,7 +9,7 @@ interface TextInputProps {
 }
 
 export const TextInput: React.FC<TextInputProps> = ({ element, value, onChange, error }) => {
-  const inputRef = useRef<HTMLInputElement & HTMLTextAreaElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (element.autofocus && inputRef.current) {
@@ -27,20 +26,7 @@ export const TextInput: React.FC<TextInputProps> = ({ element, value, onChange, 
 
   const otherAttrs = element.attrs?.reduce((acc, { name, value }) => ({ ...acc, [name]: value }), {}) || {};
 
-  const inputElement = element.multiline ? (
-    <textarea
-      ref={inputRef}
-      className={inputClasses}
-      rows={element.rows || 4}
-      value={value || element.value || ''}
-      onChange={(e) => onChange(e.target.value)}
-      placeholder={element.placeholder}
-      required={element.required}
-      disabled={element.disabled}
-      maxLength={element.maxlength}
-      {...otherAttrs}
-    />
-  ) : (
+  const inputElement = (
     <input
       ref={inputRef}
       type={element.type === 'text' ? 'text' : element.type}
