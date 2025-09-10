@@ -303,7 +303,7 @@ const CustomFormRenderer: React.FC<CustomFormRendererProps> = ({ formDefinition,
   return (
     <>
     {durationInMinutes && timeLeft !== null && <CountdownTimer timeLeftInSeconds={timeLeft} />}
-    <div className="max-w-2xl mx-auto my-10 p-8 bg-white dark:bg-gray-800 rounded-xl shadow-2xl transition-all duration-500">
+    <div className="mx-auto my-10 p-8 bg-white dark:bg-gray-800 rounded-xl shadow-2xl transition-all duration-500">
         <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5 mb-6">
             <div className="bg-blue-600 h-2.5 rounded-full" style={{ width: `${progress}%`, transition: 'width 0.5s ease-in-out' }}></div>
         </div>

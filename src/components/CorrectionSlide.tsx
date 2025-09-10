@@ -73,7 +73,7 @@ export const CorrectionSlide: React.FC<CorrectionSlideProps> = ({ formAnswers, a
     const maxScore = gradedElements.reduce((sum, el) => sum + (el.score || 0), 0);
 
     return (
-        <div className="max-w-2xl mx-auto my-10 p-8 bg-white dark:bg-gray-800 rounded-xl shadow-2xl">
+        <div className="mx-auto my-10 p-8 bg-white dark:bg-gray-800 rounded-xl shadow-2xl">
             <h1 className="text-3xl font-bold text-center mb-2">{t('results')}</h1>
             <div className="text-center p-4 mb-8 rounded-lg bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800">
                 <p className="text-lg font-medium text-gray-600 dark:text-gray-300">{t('totalScore')}</p>

@@ -29,7 +29,7 @@ export const PreviewSlide: React.FC<PreviewSlideProps> = ({
   );
 
   return (
-    <div className="max-w-2xl mx-auto my-10 p-8 bg-white dark:bg-gray-800 rounded-xl shadow-2xl">
+    <div className="mx-auto my-10 p-8 bg-white dark:bg-gray-800 rounded-xl shadow-2xl">
       <h1 className="text-3xl font-bold text-center mb-2">{t('reviewAnswers')}</h1>
       <p className="text-center text-gray-600 dark:text-gray-400 mb-8">{t('reviewInstructions')}</p>
       
