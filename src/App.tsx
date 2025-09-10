@@ -299,7 +299,7 @@ const SystemIcon = () => (
 
 
 const App: React.FC = () => {
-  const [submittedData, setSubmittedData] = useState<any | null>(null);
+  const [setSubmittedData] = useState<any | null>(null);
   const [language, setLanguage] = useState<'en' | 'fr' | 'ar'>('en');
   const [theme, setTheme] = useState<'light' | 'dark' | 'system'>(() => {
     return (localStorage.getItem('theme') as 'light' | 'dark' | 'system') || 'system';
